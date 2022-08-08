@@ -7,6 +7,14 @@
   &__icon {
     width: 28px;
     height: 28px;
+    padding: 4px;
+    border: 1px solid transparent;
+    transition: border-color ease-in-out 0.5s;
+
+    &:hover {
+      border-color: #1caa8b;
+      cursor: pointer;
+    }
   }
 
   &__menu {

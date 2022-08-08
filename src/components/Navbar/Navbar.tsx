@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import '../Navbar/Navbar.scss';
 import {
   helpIcon,
@@ -7,7 +7,13 @@ import {
   statsIcon,
 } from '../../icons';
 
-export const Navbar = React.memo(() => {
+interface NavbarProps {
+  onShowHelpHandler: () => void;
+}
+
+export const Navbar: FC<NavbarProps> = React.memo(({
+  onShowHelpHandler,
+}) => {
   return (
     <nav className="Navbar">
       <article className="Navbar__menu">
@@ -27,6 +33,7 @@ export const Navbar = React.memo(() => {
           src={helpIcon}
           alt="help"
           className="Navbar__icon"
+          onClick={() => onShowHelpHandler()}
         />
 
         <img
