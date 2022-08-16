@@ -71,17 +71,21 @@ export const Instructions: FC<InstructionsProps> = React.memo(({
           const { words, info} = data;
           return words.map((word, i) => (
             <>
-              <div className="Instructions__letter-wraper">
+              <div className="Instructions__letter-wraper" key={i}>
                 {
                   word.split('').map((char, index) => (
-                    <div className="Instructions__letter">
+                    <div className="Instructions__letter" key={index}>
                       {char} 
                     </div>
                   ))
                 }
               </div>
 
-              <p className="Instructions__description" dangerouslySetInnerHTML={{__html: sanitizer(info[i])}} />
+              <p
+                className="Instructions__description"
+                dangerouslySetInnerHTML={{__html: sanitizer(info[i])}}
+                key={info[i]}
+              />
             </>
           ))          
         })
@@ -94,7 +98,11 @@ export const Instructions: FC<InstructionsProps> = React.memo(({
         <strong>A new WORDLE will be available each day!</strong>
       </p>
 
-      <p className="Instructions__text">Never miss a Wordle. <strong>Sign up</strong> for our daily reminder email.</p>
+      <p className="Instructions__text">
+        Never miss a Wordle.
+        <strong>Sign up</strong>
+        for our daily reminder email.
+      </p>
 
       <hr />
 
